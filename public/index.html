@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="icon" href="../image/gpu.ico" type="image/x-icon" />
+    <title>GPU Stock</title>
+    <script>
+      function configureDropDownLists(series, model) {
+        const geforce_models = [
+          "RTX 3060",
+          "RTX 3060 Ti",
+          "RTX 3070",
+          "RTX 3070 Ti",
+          "RTX 3080",
+          "RTX 3080 Ti",
+          "RTX 3090",
+        ];
+        const radeon_models = [
+          "RX 6600",
+          "RX 6600 XT",
+          "RX 6700 XT",
+          "RX 6800",
+          "RX 6800 XT",
+          "RX 6900 XT",
+        ];
+
+        switch (series.value) {
+          case "geforce":
+            model.options.length = 0;
+            for (i = 0; i < geforce_models.length; i++) {
+              createOption(model, geforce_models[i], geforce_models[i]);
+            }
+            break;
+          case "radeon":
+            model.options.length = 0;
+            for (i = 0; i < radeon_models.length; i++) {
+              createOption(model, radeon_models[i], radeon_models[i]);
+            }
+            break;
+          default:
+            model.options.length = 0;
+            break;
+        }
+      }
+
+      function createOption(ddl, text, value) {
+        let opt = document.createElement("option");
+        opt.value = value;
+        opt.text = text;
+        ddl.options.add(opt);
+      }
+
+      function resetForm() {
+        document.getElementById("search-form").reset();
+      }
+
+      function toggleElement(id, enable) {
+        document.getElementById(id).disabled = enable;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="head">
+      <h1>GPU Stock Checker</h1>
+
+      <p>
+        This app provides up to date pricing on the most recent GeForce and
+        Radeon Graphics cards. Select a GPU and how overpriced you would like it
+        to be! We will try to find one within the budget you set.
+      </p>
+      <p class="note">
+        Please Note: GPUs are hard to find right now. You may need to pay more
+        than you want if you want a recent model.
+      </p>
+    </div>
+
+    <div class="form-section">
+      <form id="search-form">
+        <fieldset>
+          <legend>Select a Series to Get Started!</legend>
+          <label for="series">Select a Series: </label>
+          <br />
+          <select
+            name="series"
+            id="series"
+            onchange="configureDropDownLists(this,document.getElementById('model'))"
+          >
+            <option value="" disabled selected hidden>Please Choose...</option>
+            <option value="geforce">Nvidia GeForce</option>
+            <option value="radeon">AMD Radeon</option>
+          </select>
+          <br /><br />
+          <label for="model">Select a Model: </label>
+          <br />
+          <select name="model" id="model">
+            <option value="" disabled selected hidden>Please Choose...</option>
+          </select>
+
+          <br />
+          <br />
+
+          <label for="threshold">How overpriced can the results be?</label>
+          <br />
+          <input
+            type="range"
+            id="threshold"
+            name="threshold"
+            value="50"
+            min="1"
+            max="200"
+            oninput="this.nextElementSibling.value = this.value"
+          />
+          <output>50</output>
+
+          <br />
+          <br />
+
+          <label for="toggle">Select to show all prices: </label>
+          <input
+            type="checkbox"
+            id="toggle-threshold"
+            name="threshold"
+            value="100000"
+            onclick="toggleElement('threshold', this.checked)"
+          />
+
+          <br />
+          <br />
+
+          <button>Submit</button>
+          <input
+            type="button"
+            onclick="window.location.href='/';"
+            value="Reset"
+          />
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

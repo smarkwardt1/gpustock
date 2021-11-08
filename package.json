@@ -1,15 +1,16 @@
 {
-  "name": "assignment3",
+  "name": "gpustock",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.cjs"
   },
-  "author": "",
+  "author": "Shane Markwardt",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.12"
   }

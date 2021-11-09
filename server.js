@@ -57,7 +57,7 @@ app.post("/", (req, res) => {
     .get(search_url)
     .then(function (response) {
       // handle success
-      console.log(response.body);
+      console.log(response);
     })
     .catch(function (error) {
       // handle error

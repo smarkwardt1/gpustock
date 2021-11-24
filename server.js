@@ -4,14 +4,13 @@ const PORT = 4000;
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const fs = require("fs");
 const axios = require("axios");
+const { response } = require("express");
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
-// Note: Don't add or change anything above this line.
 
 app.post("/", (req, res) => {
   const model = req.body.model;
@@ -23,7 +22,6 @@ app.post("/", (req, res) => {
 
   // set search URL
   let search_url = "http://localhost:3000/pricing/" + model;
-  console.log("Search URL: " + search_url);
 
   //calculate threshold price
   function calcMSRP(model) {
@@ -50,24 +48,18 @@ app.post("/", (req, res) => {
     }
   }
   const search_msrp = calcMSRP(model);
-  console.log("Search MSRP: " + search_msrp);
 
-  // GET GPU pricing
-  axios
-    .get(search_url)
-    .then(function (response) {
-      // handle success
-      console.log(response.body);
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
+  const data = getPricing(search_url);
+  res.send(stringifyJSON(data));
 });
 
-function calcThreshPrice(threshold) {}
+// GET GPU pricing
+async function getPricing(search_url) {
+  const response = await axios.get(search_url);
+  const data = response.data;
+  return data;
+}
 
-// Note: Don't add or change anything below this line.
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });

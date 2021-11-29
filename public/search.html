@@ -5,6 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="text/javascript" src="./data/search_data.json"></script>
+    <script>
+      fetch("./data/search_data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          buildTable(data);
+        });
+
+      function buildTable(data) {
+        var table = document.getElementById("table-data");
+
+        for (var i = 0; i < data.length; i++) {
+          var row = `<tr>
+							<td>${data[i].store}</td>
+							<td>${data[i].name}</td>
+							<td><a href="${data[i].url}">Link</td>
+              <td>${data[i].price}</td>
+					  </tr>`;
+          table.innerHTML += row;
+        }
+      }
+    </script>
     <title>Results</title>
   </head>
   <body>
@@ -31,40 +53,13 @@
       <table class="results-table">
         <thead>
           <tr>
-            <th>Series</th>
-            <th>Model</th>
-            <th>Brand</th>
+            <th>Store</th>
+            <th>Graphics Card</th>
+            <th>URL</th>
             <th>Price</th>
-            <th>MSRP</th>
-            <th>Link</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Nvidia GeForce</td>
-            <td>RTX 3080</td>
-            <td>blah</td>
-            <td>$1200</td>
-            <td>$599</td>
-            <td><button>Button</button></td>
-          </tr>
-          <tr>
-            <td>Nvidia GeForce</td>
-            <td>RTX 3080</td>
-            <td>blah</td>
-            <td>$1200</td>
-            <td>$599</td>
-            <td><button>Button</button></td>
-          </tr>
-          <tr>
-            <td>Nvidia GeForce</td>
-            <td>RTX 3080</td>
-            <td>blah</td>
-            <td>$1200</td>
-            <td>$599</td>
-            <td><button>Button</button></td>
-          </tr>
-        </tbody>
+        <tbody id="table-data"></tbody>
       </table>
     </div>
   </body>

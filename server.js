@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
-app.post("/", (req, res) => {
+app.post("/search.html", async (req, res) => {
   const model = req.body.model;
   const threshold = req.body.threshold;
   const series = req.body.series;
@@ -51,8 +51,8 @@ app.post("/", (req, res) => {
   }
   const search_msrp = calcMSRP(model);*/
 
-  getPricing(search_url);
-  
+  const data = JSON.stringify(await getPricing(search_url));
+  res.redirect('/search.html');
 });
 
 // GET GPU pricing
@@ -71,7 +71,7 @@ async function saveData(data) {
       return console.log(err);
     }
 
-    console.log("JSON file has been saved.");
+    console.log("Data file has been created.");
   });
 }
 

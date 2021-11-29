@@ -51,8 +51,6 @@ app.post("/", (req, res) => {
   }
   const search_msrp = calcMSRP(model);*/
 
-  //maybe not send
-  //let data = 
   getPricing(search_url);
   
 });
@@ -67,7 +65,7 @@ async function getPricing(search_url) {
 async function saveData(data) {
   let data_string = JSON.stringify(data);
 
-  fs.writeFile("search_data.json", data_string, "utf8", function (err) {
+  fs.writeFile("./public/data/search_data.json", data_string, "utf8", function (err) {
     if (err) {
       console.log("An error occured while writing JSON Object to File.");
       return console.log(err);

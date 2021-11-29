@@ -5,6 +5,7 @@ const PORT = 4000;
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
+const fs = require("fs");
 const { response } = require("express");
 const app = express();
 
@@ -24,6 +25,7 @@ app.post("/", (req, res) => {
   let search_url = "http://localhost:3000/pricing/" + model;
 
   //calculate threshold price
+  /*
   function calcMSRP(model) {
     const all_models = [
       { model: "RTX 3060", msrp: 329 },
@@ -47,18 +49,32 @@ app.post("/", (req, res) => {
       }
     }
   }
-  const search_msrp = calcMSRP(model);
+  const search_msrp = calcMSRP(model);*/
 
   //maybe not send
-  const data = getPricing(search_url);
-  res.send(stringifyJSON(data));
+  //let data = 
+  getPricing(search_url);
+  
 });
 
 // GET GPU pricing
 async function getPricing(search_url) {
   const response = await axios.get(search_url);
   const data = response.data;
-  return data;
+  saveData(data);
+}
+
+async function saveData(data) {
+  let data_string = JSON.stringify(data);
+
+  fs.writeFile("search_data.json", data_string, "utf8", function (err) {
+    if (err) {
+      console.log("An error occured while writing JSON Object to File.");
+      return console.log(err);
+    }
+
+    console.log("JSON file has been saved.");
+  });
 }
 
 app.listen(PORT, () => {

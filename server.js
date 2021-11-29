@@ -15,44 +15,15 @@ app.use(express.static("public"));
 
 app.post("/search.html", async (req, res) => {
   const model = req.body.model;
-  const threshold = req.body.threshold;
   const series = req.body.series;
   console.log("Series: " + series);
   console.log("Model: " + model);
-  console.log("Threshold: " + threshold);
 
   // set search URL
   let search_url = "http://localhost:3000/pricing/" + model;
 
-  //calculate threshold price
-  /*
-  function calcMSRP(model) {
-    const all_models = [
-      { model: "RTX 3060", msrp: 329 },
-      { model: "RTX 3060 Ti", msrp: 399 },
-      { model: "RTX 3070", msrp: 499 },
-      { model: "RTX 3070 Ti", msrp: 599 },
-      { model: "RTX 3080", msrp: 699 },
-      { model: "RTX 3080 Ti", msrp: 1199 },
-      { model: "RTX 3090", msrp: 1499 },
-      { model: "RX 6600", msrp: 329 },
-      { model: "RX 6600 XT", msrp: 379 },
-      { model: "RX 6700 XT", msrp: 479 },
-      { model: "RX 6800", msrp: 579 },
-      { model: "RX 6800 XT", msrp: 649 },
-      { model: "RX 6900 XT", msrp: 999 },
-    ];
-
-    for (let i in all_models) {
-      if (all_models[i].model === model) {
-        return all_models[i].msrp;
-      }
-    }
-  }
-  const search_msrp = calcMSRP(model);*/
-
   const data = JSON.stringify(await getPricing(search_url));
-  res.redirect('/search.html');
+  res.redirect("/search.html");
 });
 
 // GET GPU pricing
@@ -65,14 +36,19 @@ async function getPricing(search_url) {
 async function saveData(data) {
   let data_string = JSON.stringify(data);
 
-  fs.writeFile("./public/data/search_data.json", data_string, "utf8", function (err) {
-    if (err) {
-      console.log("An error occured while writing JSON Object to File.");
-      return console.log(err);
-    }
+  fs.writeFile(
+    "./public/data/search_data.json",
+    data_string,
+    "utf8",
+    function (err) {
+      if (err) {
+        console.log("An error occured while writing JSON Object to File.");
+        return console.log(err);
+      }
 
-    console.log("Data file has been created.");
-  });
+      console.log("Data file has been created.");
+    }
+  );
 }
 
 app.listen(PORT, () => {

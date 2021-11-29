@@ -85,7 +85,7 @@
     <div class="form-section">
       <form action="/search.html" method="post">
         <fieldset>
-          <legend>Select a Series to Get Started!</legend>
+          <legend>Select a Graphics Card to Get Started!</legend>
           <label for="series">Select a Series: </label>
           <br />
           <select
@@ -103,34 +103,6 @@
           <select name="model" id="model">
             <option value="" disabled selected hidden>Please Choose...</option>
           </select>
-
-          <br />
-          <br />
-
-          <label for="threshold">How overpriced can the results be?</label>
-          <br />
-          <input
-            type="range"
-            id="threshold"
-            name="threshold"
-            value="50"
-            min="1"
-            max="200"
-            oninput="this.nextElementSibling.value = this.value"
-          />
-          <output>50</output>
-
-          <br />
-          <br />
-
-          <label for="toggle">Select to show all prices: </label>
-          <input
-            type="checkbox"
-            id="toggle-threshold"
-            name="threshold"
-            value="100000"
-            onclick="toggleElement('threshold', this.checked)"
-          />
 
           <br />
           <br />

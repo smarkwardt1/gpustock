@@ -66,6 +66,10 @@ legend {
   font-size: large;
 }
 
+.results-table thead  {
+ cursor: pointer;
+}
+
 .results-table th,
 .results-table td {
     padding: 12px 15px;

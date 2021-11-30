@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="icon" href="images/favicon.ico" />
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <title>GPU Stock</title>
     <script>
       function configureDropDownLists(series, model) {
@@ -116,68 +117,202 @@
         </fieldset>
       </form>
 
-      <table class="results-table">
+      <table class="sortable results-table">
         <caption>
           Graphics Card Comparison Chart
         </caption>
         <thead>
           <tr>
             <th>GPU</th>
+            <th>Released</th>
+            <th>Memory</th>
+            <th>GPU Clock</th>
             <th>MSRP</th>
+            <th>Manufacturer Site</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><a href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090/" target="_blank">GeForce RTX 3090</a></td>
+            <td>GeForce RTX 3090</td>
+            <td>Sep 1st, 2020</td>
+            <td>24 GB, GDDR6X, 384 bit</td>
+            <td>1395 MHz</td>
             <td>$1,500</td>
+            <td>
+              <a
+                href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3090/"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>GeForce RTX 3080 Ti</td>
+            <td>May 31st, 2021</td>
+            <td>12 GB, GDDR6X, 384 bit</td>
+            <td>1365 MHz</td>
             <td>$1,200</td>
+            <td>
+              <a
+                href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3080-3080ti/"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>GeForce RTX 3080</td>
+            <td>Sep 1st, 2020</td>
+            <td>10 GB, GDDR6X, 320 bit</td>
+            <td>1440 MHz</td>
             <td>$700</td>
+            <td>
+              <a
+                href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3080-3080ti/"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>GeForce RTX 3070 Ti</td>
+            <td>May 31st, 2021</td>
+            <td>8 GB, GDDR6X, 256 bit</td>
+            <td>1575 MHz</td>
             <td>$600</td>
+            <td>
+              <a
+                href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3070-3070ti/"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>GeForce RTX 3070</td>
+            <td>Sep 1st, 2020</td>
+            <td>8 GB, GDDR6, 256 bit</td>
+            <td>1500 MHz</td>
             <td>$500</td>
+            <td>
+              <a
+                href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3070-3070ti/"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>GeForce RTX 3060 Ti</td>
+            <td>Dec 1st, 2020</td>
+            <td>8 GB, GDDR6, 256 bit</td>
+            <td>1410 MHz</td>
             <td>$400</td>
+            <td>
+              <a
+                href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060-3060ti/"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>GeForce RTX 3060</td>
+            <td>Jan 12th, 2021</td>
+            <td>12 GB, GDDR6, 192 bit</td>
+            <td>1320 MHz</td>
             <td>$330</td>
+            <td>
+              <a
+                href="https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/rtx-3060-3060ti/"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>Radeon 6900 XT</td>
+            <td>Oct 28th, 2020</td>
+            <td>16 GB, GDDR6, 256 bit</td>
+            <td>1825 MHz</td>
             <td>$1,000</td>
+            <td>
+              <a
+                href="https://www.amd.com/en/products/graphics/amd-radeon-rx-6900-xt"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>Radeon 6800 XT</td>
+            <td>Oct 28th, 2020</td>
+            <td>	16 GB, GDDR6, 256 bit</td>
+            <td>1825 MHz</td>
             <td>$650</td>
+            <td>
+              <a
+                href="https://www.amd.com/en/products/graphics/amd-radeon-rx-6800-xt"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>Radeon 6800</td>
+            <td>Oct 28th, 2020</td>
+            <td>16 GB, GDDR6, 256 bit</td>
+            <td>1700 MHz</td>
             <td>$580</td>
+            <td>
+              <a
+                href="https://www.amd.com/en/products/graphics/amd-radeon-rx-6800"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>Radeon RX 6700 XT</td>
+            <td>Mar 3rd, 2021</td>
+            <td>12 GB, GDDR6, 192 bit</td>
+            <td>2321 MHz</td>
             <td>$480</td>
+            <td>
+              <a
+                href="https://www.amd.com/en/products/graphics/amd-radeon-rx-6700-xt"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>Radeon RX 6600 XT</td>
+            <td>Jul 30th, 2021</td>
+            <td>8 GB, GDDR6, 128 bit</td>
+            <td>1968 MHz</td>
             <td>$379</td>
+            <td>
+              <a
+                href="https://www.amd.com/en/products/graphics/amd-radeon-rx-6600-xt"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
           <tr>
             <td>Radeon RX 6600</td>
+            <td>Oct 13th, 2021</td>
+            <td>8 GB, GDDR6, 128 bit</td>
+            <td>1626 MHz</td>
             <td>$329</td>
+            <td>
+              <a
+                href="https://www.amd.com/en/products/graphics/amd-radeon-rx-6600"
+                target="_blank"
+                ><img src="./images/link.png" alt="Link Icon"
+              /></a>
+            </td>
           </tr>
         </tbody>
       </table>

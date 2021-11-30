@@ -15,18 +15,16 @@ app.use(express.static("public"));
 
 app.post("/search.html", async (req, res) => {
   const model = req.body.model;
-  const series = req.body.series;
-  console.log("Series: " + series);
-  console.log("Model: " + model);
+  console.log("Searching for: " + model);
 
   // set search URL
   let search_url = "http://localhost:3000/pricing/" + model;
 
-  const data = JSON.stringify(await getPricing(search_url));
+  JSON.stringify(await getPricing(search_url));
   res.redirect("/search.html");
 });
 
-// GET GPU pricing
+// retrieve pricing
 async function getPricing(search_url) {
   const response = await axios.get(search_url);
   const data = response.data;

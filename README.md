@@ -1,2 +1,2 @@
-GPU Stock Checking App
+GPU Price Checking App
 

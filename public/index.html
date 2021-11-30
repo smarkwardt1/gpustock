@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="icon" href="images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <title>GPU Stock</title>
     <script>
@@ -65,7 +71,7 @@
   </head>
   <body>
     <div class="head">
-      <h1>GPU Stock Checker</h1>
+      <h1>GPU Price Checker</h1>
 
       <p>
         Tired of scouring the internet for reasonably priced Graphics Cards just
@@ -85,8 +91,8 @@
 
     <div class="form-section">
       <form action="/search.html" method="post">
-        <fieldset>
-          <legend>Select a Graphics Card to Get Started!</legend>
+
+          <p style="text-align: left; font-size: large;">Select a Graphics Card to Get Started!</p>
           <label for="series">Select a Series: </label>
           <br />
           <select
@@ -114,7 +120,7 @@
             onclick="window.location.href='/';"
             value="Reset"
           />
-        </fieldset>
+
       </form>
 
       <table class="sortable results-table">
@@ -247,7 +253,7 @@
           <tr>
             <td>Radeon 6800 XT</td>
             <td>Oct 28th, 2020</td>
-            <td>	16 GB, GDDR6, 256 bit</td>
+            <td>16 GB, GDDR6, 256 bit</td>
             <td>1825 MHz</td>
             <td>$650</td>
             <td>
